@@ -109,6 +109,9 @@ export function HeroSection() {
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4B7FE8] to-[#F97316]">
               Lucas Vincent Kurniawan Obedius Nobel
             </span>
+            <span className="ml-3 inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/20 text-green-400 border border-green-500/30">
+              ✨ Test Update
+            </span>
           </h1>
 
           {/* Typewriter Role */}
