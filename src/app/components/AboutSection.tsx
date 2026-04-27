@@ -136,17 +136,17 @@ const bentoCards = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 bg-[#080D1A] relative overflow-hidden">
+    <section id="about" className="py-16 sm:py-24 bg-[#080D1A] relative overflow-hidden">
       {/* BG accent */}
-      <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#1E3A8A]/5 blur-3xl" />
+      <div className="absolute top-0 right-0 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-[#1E3A8A]/5 blur-3xl" />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="mb-12">
+        <div className="mb-8 sm:mb-12">
           <div className="flex items-center gap-3 mb-3">
             <span className="w-8 h-px bg-[#F97316]" />
             <span
-              className="text-[#F97316] text-sm uppercase tracking-widest"
+              className="text-[#F97316] text-xs sm:text-sm uppercase tracking-widest"
               style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500 }}
             >
               About Me
@@ -157,7 +157,7 @@ export function AboutSection() {
             style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontWeight: 700,
-              fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
+              fontSize: "clamp(1.5rem, 4vw, 2.8rem)",
               lineHeight: 1.2,
               letterSpacing: "-0.02em",
             }}
@@ -170,11 +170,11 @@ export function AboutSection() {
         </div>
 
         {/* Bento Grid */}
-        <div className="grid lg:grid-cols-3 gap-4 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 mb-8 sm:mb-12">
           {bentoCards.map((card) => (
             <div
               key={card.id}
-              className={`rounded-2xl border p-5 ${card.bg} ${card.border} ${card.size} relative overflow-hidden group hover:border-opacity-60 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 cursor-pointer`}
+              className={`rounded-2xl border p-4 sm:p-5 ${card.bg} ${card.border} ${card.size} relative overflow-hidden group hover:border-opacity-60 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 cursor-pointer`}
             >
               {/* Hover glow */}
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-white/2 to-transparent" />
@@ -187,11 +187,10 @@ export function AboutSection() {
                   <div className="flex items-center gap-2 mb-3">
                     {card.icon}
                     <h3
-                      className="text-white"
+                      className="text-white text-sm"
                       style={{
                         fontFamily: "'Plus Jakarta Sans', sans-serif",
                         fontWeight: 600,
-                        fontSize: "0.9rem",
                       }}
                     >
                       {card.title}
@@ -200,11 +199,10 @@ export function AboutSection() {
                 )}
                 {!card.icon && (
                   <h3
-                    className="text-white mb-3"
+                    className="text-white mb-3 text-sm"
                     style={{
                       fontFamily: "'Plus Jakarta Sans', sans-serif",
                       fontWeight: 600,
-                      fontSize: "0.9rem",
                     }}
                   >
                     {card.title}
@@ -219,7 +217,7 @@ export function AboutSection() {
         {/* Tech Stack */}
         <div>
           <p
-            className="text-white/30 text-xs uppercase tracking-widest mb-4"
+            className="text-white/30 text-xs uppercase tracking-widest mb-3 sm:mb-4"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Tech Stack & Tools
@@ -230,12 +228,12 @@ export function AboutSection() {
                 key={tech.name}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-white/8 bg-white/3 hover:bg-white/8 hover:border-white/15 transition-all cursor-default group"
               >
-                <span style={{ color: tech.color }} className="group-hover:scale-110 transition-transform">
+                <span style={{ color: tech.color }} className="group-hover:scale-110 transition-transform flex-shrink-0">
                   {tech.icon}
                 </span>
                 <span
-                  className="text-white/50 group-hover:text-white/70 transition-colors"
-                  style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem" }}
+                  className="text-white/50 group-hover:text-white/70 transition-colors text-xs"
+                  style={{ fontFamily: "'Inter', sans-serif" }}
                 >
                   {tech.name}
                 </span>

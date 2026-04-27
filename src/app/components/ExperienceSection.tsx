@@ -1,4 +1,5 @@
-import { Briefcase, GraduationCap, Award, Users } from "lucide-react";
+import React from 'react';
+import { Briefcase, GraduationCap, Award, Building2 } from "lucide-react";
 
 type ExperienceType = "work" | "education" | "award" | "org";
 
@@ -19,44 +20,44 @@ const experiences: Experience[] = [
     id: "e1",
     type: "education",
     title: "S1 Sistem Informasi",
-    org: "Universitas XYZ",
-    period: "2021 — Present",
+    org: "Universitas Ma Chung",
+    period: "2024 — Present",
     location: "Indonesia",
     desc: "Fokus pada pengembangan sistem berbasis web, analisis data bisnis, dan manajemen proyek teknologi. Aktif sebagai anggota dan pengurus organisasi kemahasiswaan.",
-    tags: ["GPA 3.8", "Dean's List", "Scholarship"],
+    tags: ["GPA 3.57", "BPM FTD", "Scholarship"],
     color: "#1E3A8A",
   },
   {
     id: "e2",
-    type: "org",
-    title: "Ketua Divisi Teknologi",
-    org: "Himpunan Mahasiswa Sistem Informasi",
-    period: "2023 — 2024",
-    location: "Universitas XYZ",
-    desc: "Memimpin tim 12 orang dalam pengembangan platform digital HMSI. Berhasil meluncurkan website resmi dan sistem pendaftaran event online yang digunakan oleh 500+ mahasiswa.",
-    tags: ["Leadership", "Team of 12", "500+ Users"],
-    color: "#F97316",
-  },
-  {
-    id: "e3",
-    type: "work",
-    title: "Web Developer Intern",
-    org: "PT. Digital Solusi Indonesia",
-    period: "Jul — Sep 2023",
-    location: "Remote",
-    desc: "Membantu pengembangan fitur back-end menggunakan Node.js dan MySQL. Terlibat dalam code review, dokumentasi API, dan pengujian unit test untuk sistem e-commerce internal.",
+     type: "work",
+    title: "Admin Leader Kota (LevelUp)",
+    org: "LevelUp PPHTGD Indonesia",
+    period: "2022 - now",
+    location: "Kediri - Malang",
+    desc: " Sebagai Admin Leaders Kota (ALK) di LevelUP PPHTGD, saya bertanggung jawab atas manajemen administratif dan koordinasi strategis antar pemimpin jaringan di tingkat kota. Fokus utama saya mencakup tata kelola database keanggotaan, memastikan kelancaran operasional program pergerakan skala kota, serta menjadi jembatan komunikasi antara pengurus pusat dan tim lokal agar visi komunitas dapat tereksekusi dengan terstruktur dan efektif..",
     tags: ["Node.js", "MySQL", "REST API", "3 months"],
     color: "#1E3A8A",
   },
   {
-    id: "e4",
+    id: "e3",
     type: "org",
-    title: "Staff Divisi Riset & Teknologi",
-    org: "BEM Fakultas Ilmu Komputer",
-    period: "2022 — 2023",
-    location: "Universitas XYZ",
-    desc: "Mengelola program literasi digital dan workshop teknologi untuk mahasiswa baru. Mengorganisir 3 seminar nasional dengan total 200+ peserta.",
-    tags: ["Event Management", "3 Seminar", "200+ Participants"],
+    title: "Badan Pengurus Harian (BPH) BPMFTD",
+    org: "Badan Perwakilan Mahasiswa Fakultas Teknik dan Desain",
+    period: "2024 — 2027",
+    location: "Universitas Ma Chung",
+    desc: "Sebagai Bendahara di Badan Perwakilan Mahasiswa Fakultas Teknik dan Desain (BPM FTD), saya bertanggung jawab atas tata kelola dan regulasi keuangan dalam ruang lingkup organisasi legislatif. Fokus utama saya mencakup perumusan kebijakan anggaran, pengawasan alokasi dana kemahasiswaan, serta memastikan transparansi dan akuntabilitas finansial di lingkungan fakultas",
+    tags: ["Leadership", "Team of 28", "Financial Management"],
+    color: "#F97316",
+  },
+  {
+    id: "e4",
+    type: "work",
+    title: "Digital Transformation Lead & Full-Stack Developer",
+    org: "Toko Bangunan Graha Genusa",
+    period: "2024 - now",
+    location: "Kediri Wates",
+    desc: "Memimpin transformasi digital toko bahan bangunan konvensional. Mengembangkan sistem kasir (POS) berbasis web yang terintegrasi dengan pembayaran QRIS dan manajemen inventaris FEFO. Serta mengeksekusi ekspansi pasar omnichannel melalui platform e-commerce Shopee.",
+    tags: ["POS System", "E-commerce", "Full-Stack"],
     color: "#8B5CF6",
   },
   {
@@ -71,13 +72,14 @@ const experiences: Experience[] = [
   },
   {
     id: "e6",
-    type: "award",
-    title: "Peserta Terbaik — Data Analytics Bootcamp",
-    org: "Dicoding Academy × Kominfo",
-    period: "Agustus 2023",
-    desc: "Menyelesaikan bootcamp intensif analisis data dengan Python dan Power BI. Dipilih sebagai peserta terbaik atas proyek akhir analisis churn pelanggan.",
-    tags: ["Python", "Power BI", "Top Performer"],
-    color: "#10B981",
+    type: "education",
+    title: "Siswa Jurusan MIPA/IPS", 
+    org: "SMAK St. Augustinus Kediri",
+    period: "Jul 2021 - Mei 2024", 
+    location: "Kediri",
+    desc: "Menyelesaikan pendidikan di salah satu institusi menengah atas terbaik dan berprestasi di Kediri. Membangun fondasi yang kuat dalam kedisiplinan, manajemen waktu, dan pemikiran analitis yang kini mendukung studi lanjutan di bidang Sistem Informasi.",
+    tags: ["Analytical Thinking", "Discipline", "High School Diploma"],
+    color: "#EF4444" 
   },
 ];
 
@@ -85,21 +87,21 @@ const typeConfig: Record<ExperienceType, { icon: JSX.Element; label: string }> =
   work: { icon: <Briefcase size={14} />, label: "Work" },
   education: { icon: <GraduationCap size={14} />, label: "Education" },
   award: { icon: <Award size={14} />, label: "Achievement" },
-  org: { icon: <Users size={14} />, label: "Organization" },
+  org: { icon: <Building2 size={14} />, label: "Organization" },
 };
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="py-24 bg-[#080D1A] relative overflow-hidden">
+    <section id="experience" className="py-16 sm:py-24 bg-[#080D1A] relative overflow-hidden">
       <div className="absolute top-1/3 right-0 w-80 h-80 rounded-full bg-[#1E3A8A]/5 blur-3xl" />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="mb-14">
+        <div className="mb-10 sm:mb-14">
           <div className="flex items-center gap-3 mb-3">
             <span className="w-8 h-px bg-[#F97316]" />
             <span
-              className="text-[#F97316] text-sm uppercase tracking-widest"
+              className="text-[#F97316] text-xs sm:text-sm uppercase tracking-widest"
               style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500 }}
             >
               Experience
@@ -110,7 +112,7 @@ export function ExperienceSection() {
             style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontWeight: 700,
-              fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
+              fontSize: "clamp(1.5rem, 4vw, 2.8rem)",
               lineHeight: 1.2,
               letterSpacing: "-0.02em",
             }}
@@ -146,7 +148,7 @@ export function ExperienceSection() {
                     }`}
                   >
                     <div
-                      className="group relative rounded-2xl border border-white/8 bg-[#0D1124] p-5 hover:border-white/15 transition-all duration-300 hover:-translate-y-0.5"
+                      className="group relative rounded-2xl border border-white/8 bg-[#0D1124] p-4 sm:p-5 hover:border-white/15 transition-all duration-300 hover:-translate-y-0.5"
                       style={{
                         borderLeft: `2px solid ${exp.color}40`,
                       }}
@@ -158,9 +160,9 @@ export function ExperienceSection() {
                       />
 
                       {/* Type badge */}
-                      <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-start sm:items-center justify-between mb-3 gap-2">
                         <div
-                          className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs"
+                          className="flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs whitespace-nowrap"
                           style={{
                             background: `${exp.color}15`,
                             color: exp.color,
@@ -173,7 +175,7 @@ export function ExperienceSection() {
                           {config.label}
                         </div>
                         <span
-                          className="text-white/30 text-xs"
+                          className="text-white/30 text-xs whitespace-nowrap"
                           style={{ fontFamily: "'Inter', sans-serif" }}
                         >
                           {exp.period}
@@ -182,20 +184,18 @@ export function ExperienceSection() {
 
                       {/* Title */}
                       <h3
-                        className="text-white mb-1"
+                        className="text-white mb-1 text-sm sm:text-base"
                         style={{
                           fontFamily: "'Plus Jakarta Sans', sans-serif",
                           fontWeight: 600,
-                          fontSize: "0.95rem",
                         }}
                       >
                         {exp.title}
                       </h3>
                       <p
-                        className="mb-2"
+                        className="mb-2 text-xs sm:text-sm"
                         style={{
                           fontFamily: "'Inter', sans-serif",
-                          fontSize: "0.82rem",
                           color: exp.color,
                           fontWeight: 500,
                         }}
@@ -210,7 +210,7 @@ export function ExperienceSection() {
 
                       {/* Description */}
                       <p
-                        className="text-white/40 text-sm mb-3"
+                        className="text-white/40 text-xs sm:text-sm mb-3"
                         style={{ fontFamily: "'Inter', sans-serif", lineHeight: 1.65 }}
                       >
                         {exp.desc}

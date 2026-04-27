@@ -4,7 +4,7 @@ const socialLinks = [
   { icon: <Github size={18} />, href: "https://github.com", label: "GitHub" },
   { icon: <Linkedin size={18} />, href: "https://linkedin.com", label: "LinkedIn" },
   { icon: <Mail size={18} />, href: "mailto:yourname@email.com", label: "Email" },
-  { icon: <Instagram size={18} />, href: "https://instagram.com", label: "Instagram" },
+  { icon: <Instagram size={18} />, href: "https://www.instagram.com/lucasnbll?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" },
   { icon: <Twitter size={18} />, href: "https://twitter.com", label: "Twitter/X" },
 ];
 
@@ -31,42 +31,42 @@ export function Footer() {
       {/* Gradient accent */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-px bg-gradient-to-r from-transparent via-[#1E3A8A]/60 to-transparent" />
 
-      <div className="max-w-6xl mx-auto px-6 py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         {/* Top row */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 sm:gap-8 mb-8 sm:mb-10">
           {/* Brand */}
           <div className="max-w-xs">
             <div className="flex items-center gap-2 mb-3">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#1E3A8A] to-[#F97316] flex items-center justify-center">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#1E3A8A] to-[#F97316] flex items-center justify-center flex-shrink-0">
                 <span
-                  className="text-white"
-                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: "0.7rem" }}
+                  className="text-white text-xs"
+                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700 }}
                 >
                   SI
                 </span>
               </div>
               <span
-                className="text-white/80"
-                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: "0.95rem" }}
+                className="text-white/80 text-sm"
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600 }}
               >
-                Lucas Vincent Kurniawan Obedius Nobel<span className="text-[#F97316]">.</span>
+                Lucas Vincent<span className="hidden sm:inline"> Kurniawan</span><span className="text-[#F97316]">.</span>
               </span>
             </div>
             <p
-              className="text-white/30"
-              style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.82rem", lineHeight: 1.7 }}
+              className="text-white/30 text-xs"
+              style={{ fontFamily: "'Inter', sans-serif", lineHeight: 1.7 }}
             >
               Mahasiswa Sistem Informasi yang passionate membangun solusi digital inovatif dan berdampak.
             </p>
           </div>
 
           {/* Nav links */}
-          <nav className="flex flex-wrap gap-x-6 gap-y-2">
+          <nav className="flex flex-wrap gap-3 sm:gap-x-6 gap-y-2">
             {navLinks.map((link) => (
               <button
                 key={link.label}
                 onClick={() => handleNav(link.href)}
-                className="text-white/30 hover:text-white/60 transition-colors text-sm cursor-pointer"
+                className="text-white/30 hover:text-white/60 transition-colors text-xs sm:text-sm cursor-pointer"
                 style={{ fontFamily: "'Inter', sans-serif" }}
               >
                 {link.label}
@@ -82,7 +82,7 @@ export function Footer() {
                 href={s.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg border border-white/8 flex items-center justify-center text-white/30 hover:text-white hover:border-[#1E3A8A]/50 hover:bg-[#1E3A8A]/10 transition-all"
+                className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg border border-white/8 flex items-center justify-center text-white/30 hover:text-white hover:border-[#1E3A8A]/50 hover:bg-[#1E3A8A]/10 transition-all"
                 aria-label={s.label}
               >
                 {s.icon}
@@ -95,7 +95,7 @@ export function Footer() {
         <div className="h-px bg-white/5 mb-6" />
 
         {/* Bottom row */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
           <p
             className="text-white/20 text-xs"
             style={{ fontFamily: "'Inter', sans-serif" }}

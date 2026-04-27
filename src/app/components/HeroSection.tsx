@@ -80,14 +80,14 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-16 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-12 sm:pb-16 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Left: Text */}
         <div>
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1E3A8A]/20 border border-[#1E3A8A]/40 mb-6">
+          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#1E3A8A]/20 border border-[#1E3A8A]/40 mb-4 sm:mb-6">
             <span className="w-2 h-2 rounded-full bg-[#F97316] animate-pulse" />
             <span
-              className="text-[#93B4FF] text-xs"
+              className="text-[#93B4FF] text-xs sm:text-sm"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               Open for Internship & Collaboration
@@ -130,10 +130,10 @@ export function HeroSection() {
 
           {/* Description */}
           <p
-            className="text-white/50 mb-8 max-w-lg"
+            className="text-white/50 mb-6 sm:mb-8 max-w-lg"
             style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: "1rem",
+              fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
               lineHeight: 1.75,
             }}
           >
@@ -143,22 +143,22 @@ export function HeroSection() {
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-wrap gap-3 mb-10">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-8 sm:mb-10">
             <button
               onClick={() =>
                 document
                   .getElementById("projects")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#1E3A8A] text-white hover:bg-[#2547B0] transition-all hover:shadow-lg hover:shadow-[#1E3A8A]/30 cursor-pointer"
-              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: "0.9rem" }}
+              className="flex items-center justify-center sm:justify-start gap-2 px-6 py-3 rounded-xl bg-[#1E3A8A] text-white hover:bg-[#2547B0] transition-all hover:shadow-lg hover:shadow-[#1E3A8A]/30 cursor-pointer text-sm sm:text-base"
+              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500 }}
             >
               View Projects
               <ArrowDown size={16} className="rotate-[-90deg]" />
             </button>
             <button
-              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-white/70 hover:text-white hover:border-white/20 hover:bg-white/5 transition-all cursor-pointer"
-              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500, fontSize: "0.9rem" }}
+              className="flex items-center justify-center sm:justify-start gap-2 px-6 py-3 rounded-xl border border-white/10 text-white/70 hover:text-white hover:border-white/20 hover:bg-white/5 transition-all cursor-pointer text-sm sm:text-base"
+              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500 }}
             >
               <Download size={16} />
               Download CV
@@ -166,7 +166,7 @@ export function HeroSection() {
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
             <span
               className="text-white/30 text-xs"
               style={{ fontFamily: "'Inter', sans-serif" }}
@@ -195,16 +195,16 @@ export function HeroSection() {
         </div>
 
         {/* Right: Glassmorphism Card / Visual */}
-        <div className="flex justify-center lg:justify-end">
-          <div className="relative w-full max-w-sm">
+        <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
+          <div className="relative w-full max-w-xs sm:max-w-sm">
             {/* Main Glass Card */}
-            <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 overflow-hidden">
+            <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 sm:p-6 overflow-hidden">
               {/* Decorative top gradient */}
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E3A8A]/60 to-transparent" />
 
               {/* Header row */}
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1E3A8A] to-[#2547B0] flex items-center justify-center">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-5">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1E3A8A] to-[#2547B0] flex items-center justify-center flex-shrink-0">
                   <span
                     className="text-white"
                     style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: "1.1rem" }}
@@ -212,21 +212,21 @@ export function HeroSection() {
                     YN
                   </span>
                 </div>
-                <div>
+                <div className="flex-1">
                   <p
-                    className="text-white"
-                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: "0.95rem" }}
+                    className="text-white text-sm sm:text-base"
+                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600 }}
                   >
-                    Lucas Vincent Kurniawan Obedius Nobel
+                    Lucas Vincent Kurniawan
                   </p>
                   <p
-                    className="text-white/40"
-                    style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.78rem" }}
+                    className="text-white/40 text-xs"
+                    style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     Information Systems Student
                   </p>
                 </div>
-                <div className="ml-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex-shrink-0">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-emerald-400 text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>
                     Available
@@ -235,7 +235,7 @@ export function HeroSection() {
               </div>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-3 gap-3 mb-5">
+              <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-5">
                 {[
                   { label: "Projects", value: "15+" },
                   { label: "Tech Stack", value: "12+" },
@@ -243,21 +243,20 @@ export function HeroSection() {
                 ].map((stat) => (
                   <div
                     key={stat.label}
-                    className="rounded-xl bg-white/5 border border-white/8 p-3 text-center"
+                    className="rounded-xl bg-white/5 border border-white/8 p-2 sm:p-3 text-center"
                   >
                     <p
-                      className="text-white"
+                      className="text-white text-sm sm:text-base"
                       style={{
                         fontFamily: "'Plus Jakarta Sans', sans-serif",
                         fontWeight: 700,
-                        fontSize: "1.2rem",
                       }}
                     >
                       {stat.value}
                     </p>
                     <p
-                      className="text-white/40"
-                      style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.7rem", marginTop: "2px" }}
+                      className="text-white/40 text-xs"
+                      style={{ fontFamily: "'Inter', sans-serif", marginTop: "2px" }}
                     >
                       {stat.label}
                     </p>
@@ -275,14 +274,14 @@ export function HeroSection() {
                   <div key={item.skill}>
                     <div className="flex justify-between mb-1">
                       <span
-                        className="text-white/60"
-                        style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem" }}
+                        className="text-white/60 text-xs"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
                       >
                         {item.skill}
                       </span>
                       <span
-                        className="text-white/40"
-                        style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.75rem" }}
+                        className="text-white/40 text-xs"
+                        style={{ fontFamily: "'Inter', sans-serif" }}
                       >
                         {item.pct}%
                       </span>
@@ -305,7 +304,7 @@ export function HeroSection() {
             </div>
 
             {/* Floating Badge */}
-            <div className="absolute -top-4 -right-4 px-3 py-1.5 rounded-lg bg-[#F97316] text-white text-xs shadow-lg shadow-[#F97316]/30"
+            <div className="absolute -top-3 -right-3 px-3 py-1.5 rounded-lg bg-[#F97316] text-white text-xs shadow-lg shadow-[#F97316]/30"
               style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>
               🎓 2025
             </div>

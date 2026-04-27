@@ -43,14 +43,14 @@ export function Navbar() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "py-3 bg-[#0A0F1E]/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20"
-          : "py-5 bg-transparent"
+          : "py-3 sm:py-5 bg-transparent"
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
         <button
           onClick={() => handleNav("#hero")}
-          className="flex items-center gap-2 group cursor-pointer"
+          className="flex items-center gap-2 group cursor-pointer flex-shrink-0"
         >
           <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#1E3A8A] to-[#F97316] flex items-center justify-center">
             <span className="text-white text-xs" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700 }}>
@@ -58,8 +58,8 @@ export function Navbar() {
             </span>
           </div>
           <span
-            className="text-white/90 group-hover:text-white transition-colors"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: "0.95rem" }}
+            className="text-white/90 group-hover:text-white transition-colors hidden sm:inline"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600, fontSize: "clamp(0.85rem, 1.5vw, 0.95rem)" }}
           >
             Portfolio<span className="text-[#F97316]">.</span>
           </span>
@@ -73,7 +73,7 @@ export function Navbar() {
               <li key={link.label}>
                 <button
                   onClick={() => handleNav(link.href)}
-                  className={`relative px-4 py-2 rounded-lg text-sm transition-all duration-200 cursor-pointer ${
+                  className={`relative px-3 lg:px-4 py-2 rounded-lg text-xs sm:text-sm transition-all duration-200 cursor-pointer ${
                     isActive
                       ? "text-white"
                       : "text-white/50 hover:text-white/80"
@@ -113,7 +113,7 @@ export function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="md:hidden bg-[#0A0F1E]/95 backdrop-blur-xl border-t border-white/5 px-6 py-4">
+        <div className="md:hidden bg-[#0A0F1E]/95 backdrop-blur-xl border-t border-white/5 px-4 sm:px-6 py-4">
           <ul className="flex flex-col gap-1">
             {navLinks.map((link) => (
               <li key={link.label}>
@@ -126,10 +126,10 @@ export function Navbar() {
                 </button>
               </li>
             ))}
-            <li className="mt-2">
+            <li className="mt-3 pt-3 border-t border-white/5">
               <button
                 onClick={() => handleNav("#contact")}
-                className="w-full px-4 py-3 rounded-lg bg-[#F97316] text-white text-sm cursor-pointer"
+                className="w-full px-4 py-3 rounded-lg bg-[#F97316] text-white text-sm cursor-pointer hover:bg-[#ea6c0a] transition-colors"
                 style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500 }}
               >
                 Hire Me

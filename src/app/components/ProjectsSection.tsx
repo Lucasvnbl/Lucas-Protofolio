@@ -96,7 +96,7 @@ function ProjectCard({ project }: { project: Project }) {
       style={{ boxShadow: "0 0 0 0 transparent" }}
     >
       {/* Image */}
-      <div className="relative h-44 overflow-hidden">
+      <div className="relative h-40 sm:h-44 overflow-hidden">
         <ImageWithFallback
           src={project.image}
           alt={project.title}
@@ -120,7 +120,7 @@ function ProjectCard({ project }: { project: Project }) {
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="p-4 sm:p-5">
         <p
           className="text-white/30 text-xs mb-1"
           style={{ fontFamily: "'Inter', sans-serif" }}
@@ -128,17 +128,16 @@ function ProjectCard({ project }: { project: Project }) {
           {project.subtitle}
         </p>
         <h3
-          className="text-white mb-2"
+          className="text-white mb-2 text-sm sm:text-base"
           style={{
             fontFamily: "'Plus Jakarta Sans', sans-serif",
             fontWeight: 600,
-            fontSize: "1rem",
           }}
         >
           {project.title}
         </h3>
         <p
-          className="text-white/45 text-sm mb-4 line-clamp-2"
+          className="text-white/45 text-xs sm:text-sm mb-4 line-clamp-2"
           style={{ fontFamily: "'Inter', sans-serif", lineHeight: 1.65 }}
         >
           {project.desc}
@@ -207,28 +206,28 @@ export function ProjectsSection() {
   const [activeTab, setActiveTab] = useState<Tab>("software");
 
   return (
-    <section id="projects" className="py-24 bg-[#0A0F1E] relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-96 h-96 rounded-full bg-[#F97316]/5 blur-3xl" />
+    <section id="projects" className="py-16 sm:py-24 bg-[#0A0F1E] relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-80 sm:w-96 h-80 sm:h-96 rounded-full bg-[#F97316]/5 blur-3xl" />
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="mb-10">
+        <div className="mb-8 sm:mb-10">
           <div className="flex items-center gap-3 mb-3">
             <span className="w-8 h-px bg-[#F97316]" />
             <span
-              className="text-[#F97316] text-sm uppercase tracking-widest"
+              className="text-[#F97316] text-xs sm:text-sm uppercase tracking-widest"
               style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500 }}
             >
               Projects
             </span>
           </div>
-          <div className="flex flex-wrap items-end gap-4">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap items-start sm:items-end gap-2 sm:gap-4">
             <h2
               className="text-white"
               style={{
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontWeight: 700,
-                fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
+                fontSize: "clamp(1.5rem, 4vw, 2.8rem)",
                 lineHeight: 1.2,
                 letterSpacing: "-0.02em",
               }}
@@ -239,8 +238,8 @@ export function ProjectsSection() {
               </span>
             </h2>
             <p
-              className="text-white/40 mb-1"
-              style={{ fontFamily: "'Inter', sans-serif", fontSize: "0.9rem" }}
+              className="text-white/40 text-sm"
+              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {projects[activeTab].length} projects
             </p>
@@ -248,12 +247,12 @@ export function ProjectsSection() {
         </div>
 
         {/* Tabs */}
-        <div className="flex flex-wrap gap-2 mb-8 p-1 rounded-xl bg-white/3 border border-white/5 w-fit">
+        <div className="flex flex-wrap gap-2 mb-8 p-1 rounded-xl bg-white/3 border border-white/5 w-fit overflow-x-auto">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-all cursor-pointer ${
+              className={`flex items-center gap-2 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm transition-all cursor-pointer whitespace-nowrap ${
                 activeTab === tab.id
                   ? "bg-[#1E3A8A] text-white shadow-lg shadow-[#1E3A8A]/30"
                   : "text-white/40 hover:text-white/60 hover:bg-white/5"
@@ -262,20 +261,20 @@ export function ProjectsSection() {
             >
               <span>{tab.emoji}</span>
               <span className="hidden sm:inline">{tab.label}</span>
-              <span className="sm:hidden">{tab.label.split(" ")[0]}</span>
+              <span className="sm:hidden text-xs">{tab.label.split(" ")[0]}</span>
             </button>
           ))}
         </div>
 
         {/* Project Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {projects[activeTab].map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
 
         {/* View All CTA */}
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-8 sm:mt-10">
           <button
             className="flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-white/50 hover:text-white hover:border-white/20 hover:bg-white/5 transition-all text-sm cursor-pointer group"
             style={{ fontFamily: "'Inter', sans-serif" }}
