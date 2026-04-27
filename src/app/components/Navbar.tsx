@@ -41,12 +41,12 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "py-3 bg-[#0A0F1E]/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20"
-          : "py-3 sm:py-5 bg-transparent"
-      }`}
+  scrolled
+    ? "py-3 bg-black/40 backdrop-blur-md border-b border-white/10 shadow-lg shadow-black/20"
+    : "py-3 sm:py-5 bg-transparent"
+}`}
     >
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between">
+      <nav className="max-w-[1440px] mx-auto px-4 sm:px-6 flex items-center justify-between">
         {/* Logo */}
         <button
           onClick={() => handleNav("#hero")}
