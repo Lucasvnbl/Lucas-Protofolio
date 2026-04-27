@@ -12,7 +12,7 @@ export function HeroSection() {
   const [roleIdx, setRoleIdx] = useState(0);
   const [displayed, setDisplayed] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null); 
 
   useEffect(() => {
     const current = ROLES[roleIdx];
@@ -33,7 +33,11 @@ export function HeroSection() {
       }
     }, speed);
 
-    return () => clearTimeout(timeoutRef.current);
+    return () => {
+  if (timeoutRef.current) {
+    clearTimeout(timeoutRef.current);
+  }
+};
   }, [displayed, isDeleting, roleIdx]);
 
   const scrollToAbout = () => {
@@ -80,7 +84,7 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-12 sm:pb-16 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="relative z-10 max-w-full mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-12 sm:pb-16 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Left: Text */}
         <div>
           {/* Badge */}
@@ -100,7 +104,7 @@ export function HeroSection() {
             style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontWeight: 700,
-              fontSize: "clamp(2.2rem, 5vw, 3.8rem)",
+              fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
               lineHeight: 1.15,
               letterSpacing: "-0.02em",
             }}
