@@ -1,10 +1,13 @@
-import { Mail, MapPin, Send, Copy, Check } from "lucide-react";
-import { useState } from "react";
+import { Mail, MapPin, Send, Copy, Check, Upload, X } from "lucide-react";
+import { useState, useRef } from "react";
 
 export function ContactSection() {
   const [copied, setCopied] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [files, setFiles] = useState<File[]>([]);
   const [sent, setSent] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const email = "lucasnbl111@gmail.com";
 
@@ -14,11 +17,62 @@ export function ContactSection() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      const newFiles = Array.from(e.target.files);
+      // Max 5 files, max 10MB each
+      const validFiles = newFiles.filter((file) => file.size <= 10 * 1024 * 1024);
+      if (validFiles.length < newFiles.length) {
+        alert("Beberapa file terlalu besar (max 10MB). File tersebut tidak ditambahkan.");
+      }
+      setFiles((prev) => [...prev, ...validFiles].slice(0, 5));
+    }
+  };
+
+  const removeFile = (index: number) => {
+    setFiles((prev) => prev.filter((_, i) => i !== index));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 3000);
-    setForm({ name: "", email: "", subject: "", message: "" });
+    if (!form.name || !form.email || !form.message) {
+      alert("Nama, email, dan pesan wajib diisi.");
+      return;
+    }
+
+    setIsSending(true);
+
+    try {
+      const formData = new FormData();
+      formData.append("name", form.name);
+      formData.append("email", form.email);
+      formData.append("subject", form.subject);
+      formData.append("message", form.message);
+      files.forEach((file) => {
+        formData.append("attachments", file);
+      });
+
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error?.error || "Gagal mengirim pesan.");
+      }
+
+      setSent(true);
+      setForm({ name: "", email: "", subject: "", message: "" });
+      setFiles([]);
+      if (fileInputRef.current) fileInputRef.current.value = "";
+    } catch (error) {
+      console.error(error);
+      alert("Gagal mengirim pesan. Silakan coba lagi atau hubungi langsung melalui email.");
+    } finally {
+      setIsSending(false);
+      setTimeout(() => setSent(false), 3000);
+    }
   };
 
   return (
@@ -197,12 +251,68 @@ export function ContactSection() {
                 required
               />
             </div>
+
+            {/* File Upload */}
+            <div>
+              <label
+                className="block text-white/40 text-xs mb-1.5"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                Lampiran (Opsional) - PDF, DOC, IMG, TXT (Max 10MB, 5 file)
+              </label>
+              <button
+                type="button"
+                onClick={() => fileInputRef.current?.click()}
+                className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/8 border-dashed text-white/60 hover:text-white hover:border-[#F97316]/60 hover:bg-[#F97316]/5 transition-all duration-300 text-sm flex items-center justify-center gap-2"
+                style={{ fontFamily: "'Inter', sans-serif" }}
+              >
+                <Upload size={16} />
+                Klik untuk upload file atau drag & drop
+              </button>
+              <input
+                ref={fileInputRef}
+                type="file"
+                multiple
+                accept=".pdf,.doc,.docx,.xls,.xlsx,.txt,.jpg,.jpeg,.png,.gif"
+                onChange={handleFileChange}
+                className="hidden"
+              />
+
+              {/* File Preview */}
+              {files.length > 0 && (
+                <div className="mt-3 space-y-2">
+                  {files.map((file, idx) => (
+                    <div
+                      key={idx}
+                      className="flex items-center justify-between px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white/80 text-xs"
+                    >
+                      <span className="truncate">{file.name}</span>
+                      <button
+                        type="button"
+                        onClick={() => removeFile(idx)}
+                        className="text-white/40 hover:text-white transition-colors"
+                      >
+                        <X size={14} />
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Submit Button */}
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#1E3A8A] hover:bg-[#2547B0] hover:scale-105 hover:shadow-2xl hover:shadow-[#1E3A8A]/40 text-white transition-all duration-300 cursor-pointer text-sm"
+              disabled={isSending}
+              className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-[#1E3A8A] hover:bg-[#2547B0] hover:scale-105 hover:shadow-2xl hover:shadow-[#1E3A8A]/40 text-white transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-60 text-sm"
               style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500 }}
             >
-              {sent ? (
+              {isSending ? (
+                <>
+                  <Send size={16} className="animate-spin" />
+                  Mengirim...
+                </>
+              ) : sent ? (
                 <>
                   <Check size={16} className="text-emerald-300" />
                   Pesan Terkirim!
