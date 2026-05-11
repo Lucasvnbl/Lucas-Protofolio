@@ -96,7 +96,7 @@ export function Navbar() {
         {/* CTA Button */}
         <button
           onClick={() => handleNav("#contact")}
-          className="hidden md:flex items-center gap-2 px-5 py-2 rounded-lg bg-[#F97316] text-white text-sm hover:bg-[#ea6c0a] transition-colors cursor-pointer"
+          className="hidden md:flex items-center gap-2 px-5 py-2 rounded-lg bg-[#F97316] text-white text-sm hover:bg-[#ea6c0a] transition-all duration-300 cursor-pointer hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(249,115,22,0.6)]"
           style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500 }}
         >
           Hire Me
@@ -129,7 +129,7 @@ export function Navbar() {
             <li className="mt-3 pt-3 border-t border-white/5">
               <button
                 onClick={() => handleNav("#contact")}
-                className="w-full px-4 py-3 rounded-lg bg-[#F97316] text-white text-sm cursor-pointer hover:bg-[#ea6c0a] transition-colors"
+                className="w-full px-4 py-3 rounded-lg bg-[#F97316] text-white text-sm cursor-pointer hover:bg-[#ea6c0a] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(249,115,22,0.6)]"
                 style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500 }}
               >
                 Hire Me

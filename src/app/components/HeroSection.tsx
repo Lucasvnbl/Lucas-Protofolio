@@ -84,7 +84,7 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-full mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-12 sm:pb-16 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-12 sm:pb-16 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
         {/* Left: Text */}
         <div>
           {/* Badge */}

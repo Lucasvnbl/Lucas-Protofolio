@@ -83,7 +83,7 @@ const experiences: Experience[] = [
   },
 ];
 
-const typeConfig: Record<ExperienceType, { icon: JSX.Element; label: string }> = {
+const typeConfig: Record<ExperienceType, { icon: React.JSX.Element; label: string }> = {
   work: { icon: <Briefcase size={14} />, label: "Work" },
   education: { icon: <GraduationCap size={14} />, label: "Education" },
   award: { icon: <Award size={14} />, label: "Achievement" },
