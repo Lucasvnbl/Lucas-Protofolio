@@ -84,14 +84,14 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 pt-20 sm:pt-24 pb-12 sm:pb-16 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 py-16 sm:py-24 lg:py-20 grid lg:grid-cols-2 gap-6 lg:gap-16 items-center">
         {/* Left: Text */}
         <div>
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#1E3A8A]/20 border border-[#1E3A8A]/40 mb-4 sm:mb-6">
+          <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-[#1E3A8A]/20 border border-[#1E3A8A]/40 mb-6 sm:mb-8">
             <span className="w-2 h-2 rounded-full bg-[#F97316] animate-pulse" />
             <span
-              className="text-[#93B4FF] text-xs sm:text-sm"
+              className="text-[#93B4FF] text-sm sm:text-base"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               Open for Internship & Collaboration
@@ -100,19 +100,21 @@ export function HeroSection() {
 
           {/* Main Heading */}
           <h1
-            className="text-white mb-3"
+            className="text-white mb-4 sm:mb-6"
             style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontWeight: 700,
-              fontSize: "clamp(1.8rem, 4vw, 2.8rem)",
-              lineHeight: 1.15,
+              fontSize: "clamp(2.2rem, 5vw, 3.5rem)",
+              lineHeight: 1.1,
               letterSpacing: "-0.02em",
             }}
           >
             Hi, I'm{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#4B7FE8] to-[#F97316]">
-              Lucas Vincent Kurniawan Obedius Nobel
+              Lucas Vincent Kurniawan
             </span>
+            <br />
+            <span className="text-white">Obedius Nobel</span>
             <span className="ml-3 inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-500/20 text-green-400 border border-green-500/30">
               ✨ Test Update
             </span>
@@ -120,25 +122,25 @@ export function HeroSection() {
 
           {/* Typewriter Role */}
           <div
-            className="flex items-center gap-2 mb-6"
+            className="flex items-center gap-2 mb-6 sm:mb-8"
             style={{
               fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontWeight: 600,
-              fontSize: "clamp(1.1rem, 2.5vw, 1.5rem)",
-              color: "rgba(255,255,255,0.7)",
+              fontSize: "clamp(1.2rem, 3vw, 1.8rem)",
+              color: "rgba(255,255,255,0.8)",
             }}
           >
             <span>{displayed}</span>
-            <span className="w-0.5 h-7 bg-[#F97316] animate-pulse" />
+            <span className="w-0.5 h-8 bg-[#F97316] animate-pulse" />
           </div>
 
           {/* Description */}
           <p
-            className="text-white/50 mb-6 sm:mb-8 max-w-lg"
+            className="text-white/60 mb-8 sm:mb-10 max-w-xl"
             style={{
               fontFamily: "'Inter', sans-serif",
-              fontSize: "clamp(0.9rem, 1.5vw, 1rem)",
-              lineHeight: 1.75,
+              fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
+              lineHeight: 1.8,
             }}
           >
             Mahasiswa Sistem Informasi yang passionate dalam membangun solusi
@@ -147,48 +149,48 @@ export function HeroSection() {
           </p>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-8 sm:mb-10">
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4 mb-10 sm:mb-12">
             <button
               onClick={() =>
                 document
                   .getElementById("projects")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
-              className="flex items-center justify-center sm:justify-start gap-2 px-6 py-3 rounded-xl bg-[#1E3A8A] text-white hover:bg-[#2547B0] transition-all hover:shadow-lg hover:shadow-[#1E3A8A]/30 cursor-pointer text-sm sm:text-base"
-              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500 }}
+              className="flex items-center justify-center sm:justify-start gap-2 px-8 py-4 rounded-xl bg-[#1E3A8A] text-white hover:bg-[#2547B0] transition-all hover:shadow-lg hover:shadow-[#1E3A8A]/30 cursor-pointer text-base sm:text-lg"
+              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600 }}
             >
               View Projects
-              <ArrowDown size={16} className="rotate-[-90deg]" />
+              <ArrowDown size={18} className="rotate-[-90deg]" />
             </button>
             <button
-              className="flex items-center justify-center sm:justify-start gap-2 px-6 py-3 rounded-xl border border-white/10 text-white/70 hover:text-white hover:border-white/20 hover:bg-white/5 transition-all cursor-pointer text-sm sm:text-base"
-              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500 }}
+              className="flex items-center justify-center sm:justify-start gap-2 px-8 py-4 rounded-xl border border-white/10 text-white/70 hover:text-white hover:border-white/20 hover:bg-white/5 transition-all cursor-pointer text-base sm:text-lg"
+              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600 }}
             >
-              <Download size={16} />
+              <Download size={18} />
               Download CV
             </button>
           </div>
 
           {/* Social Links */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5">
             <span
-              className="text-white/30 text-xs"
+              className="text-white/40 text-sm"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
               Find me on
             </span>
             <div className="flex gap-3">
               {[
-                { icon: <Github size={18} />, href: "https://github.com", label: "GitHub" },
-                { icon: <Linkedin size={18} />, href: "https://linkedin.com", label: "LinkedIn" },
-                { icon: <Mail size={18} />, href: "mailto:you@email.com", label: "Email" },
+                { icon: <Github size={20} />, href: "https://github.com", label: "GitHub" },
+                { icon: <Linkedin size={20} />, href: "https://linkedin.com", label: "LinkedIn" },
+                { icon: <Mail size={20} />, href: "mailto:you@email.com", label: "Email" },
               ].map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-[#1E3A8A]/60 hover:bg-[#1E3A8A]/20 transition-all"
+                  className="w-12 h-12 rounded-lg border border-white/10 flex items-center justify-center text-white/40 hover:text-white hover:border-[#1E3A8A]/60 hover:bg-[#1E3A8A]/20 transition-all"
                   aria-label={s.label}
                 >
                   {s.icon}
@@ -199,39 +201,39 @@ export function HeroSection() {
         </div>
 
         {/* Right: Glassmorphism Card / Visual */}
-        <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
-          <div className="relative w-full max-w-xs sm:max-w-sm">
+        <div className="flex justify-center lg:justify-end mt-10 lg:mt-0">
+          <div className="relative w-full max-w-sm sm:max-w-md">
             {/* Main Glass Card */}
-            <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-4 sm:p-6 overflow-hidden">
+            <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 sm:p-8 overflow-hidden">
               {/* Decorative top gradient */}
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#1E3A8A]/60 to-transparent" />
 
               {/* Header row */}
-              <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-5">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#1E3A8A] to-[#2547B0] flex items-center justify-center flex-shrink-0">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-7">
+                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-[#1E3A8A] to-[#2547B0] flex items-center justify-center flex-shrink-0">
                   <span
-                    className="text-white"
-                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700, fontSize: "1.1rem" }}
+                    className="text-white text-xl"
+                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700 }}
                   >
                     YN
                   </span>
                 </div>
                 <div className="flex-1">
                   <p
-                    className="text-white text-sm sm:text-base"
-                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 600 }}
+                    className="text-white text-lg"
+                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 700 }}
                   >
                     Lucas Vincent Kurniawan
                   </p>
                   <p
-                    className="text-white/40 text-xs"
+                    className="text-white/40 text-sm"
                     style={{ fontFamily: "'Inter', sans-serif" }}
                   >
                     Information Systems Student
                   </p>
                 </div>
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex-shrink-0">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex-shrink-0">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-emerald-400 text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>
                     Available
                   </span>
@@ -239,7 +241,7 @@ export function HeroSection() {
               </div>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-5">
+              <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-7">
                 {[
                   { label: "Projects", value: "15+" },
                   { label: "Tech Stack", value: "12+" },
@@ -247,10 +249,10 @@ export function HeroSection() {
                 ].map((stat) => (
                   <div
                     key={stat.label}
-                    className="rounded-xl bg-white/5 border border-white/8 p-2 sm:p-3 text-center"
+                    className="rounded-xl bg-white/5 border border-white/8 p-3 sm:p-4 text-center"
                   >
                     <p
-                      className="text-white text-sm sm:text-base"
+                      className="text-white text-lg sm:text-xl"
                       style={{
                         fontFamily: "'Plus Jakarta Sans', sans-serif",
                         fontWeight: 700,
@@ -259,8 +261,8 @@ export function HeroSection() {
                       {stat.value}
                     </p>
                     <p
-                      className="text-white/40 text-xs"
-                      style={{ fontFamily: "'Inter', sans-serif", marginTop: "2px" }}
+                      className="text-white/40 text-xs sm:text-sm"
+                      style={{ fontFamily: "'Inter', sans-serif", marginTop: "4px" }}
                     >
                       {stat.label}
                     </p>
@@ -269,28 +271,28 @@ export function HeroSection() {
               </div>
 
               {/* Skills Preview */}
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {[
                   { skill: "Full-Stack Dev", pct: 85, color: "#1E3A8A" },
                   { skill: "Data Analytics", pct: 80, color: "#F97316" },
                   { skill: "Brand Design", pct: 72, color: "#8B5CF6" },
                 ].map((item) => (
                   <div key={item.skill}>
-                    <div className="flex justify-between mb-1">
+                    <div className="flex justify-between mb-2">
                       <span
-                        className="text-white/60 text-xs"
-                        style={{ fontFamily: "'Inter', sans-serif" }}
+                        className="text-white/70 text-sm"
+                        style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500 }}
                       >
                         {item.skill}
                       </span>
                       <span
-                        className="text-white/40 text-xs"
+                        className="text-white/40 text-sm"
                         style={{ fontFamily: "'Inter', sans-serif" }}
                       >
                         {item.pct}%
                       </span>
                     </div>
-                    <div className="h-1.5 rounded-full bg-white/5 overflow-hidden">
+                    <div className="h-2 rounded-full bg-white/5 overflow-hidden">
                       <div
                         className="h-full rounded-full"
                         style={{
@@ -308,14 +310,14 @@ export function HeroSection() {
             </div>
 
             {/* Floating Badge */}
-            <div className="absolute -top-3 -right-3 px-3 py-1.5 rounded-lg bg-[#F97316] text-white text-xs shadow-lg shadow-[#F97316]/30"
-              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>
+            <div className="absolute -top-3 -right-3 px-4 py-2 rounded-lg bg-[#F97316] text-white text-sm shadow-lg shadow-[#F97316]/30"
+              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 700 }}>
               🎓 2025
             </div>
 
             {/* Floating Tag */}
-            <div className="absolute -bottom-4 -left-4 px-3 py-1.5 rounded-lg bg-[#1E3A8A] border border-[#1E3A8A]/60 text-white text-xs shadow-lg shadow-[#1E3A8A]/30"
-              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 500 }}>
+            <div className="absolute -bottom-4 -left-4 px-4 py-2 rounded-lg bg-[#1E3A8A] border border-[#1E3A8A]/60 text-white text-xs shadow-lg shadow-[#1E3A8A]/30"
+              style={{ fontFamily: "'Inter', sans-serif", fontWeight: 600 }}>
               💻 React · Node.js · MySQL
             </div>
           </div>
@@ -327,8 +329,8 @@ export function HeroSection() {
         onClick={scrollToAbout}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 hover:text-white/60 transition-colors cursor-pointer"
       >
-        <span className="text-xs" style={{ fontFamily: "'Inter', sans-serif" }}>Scroll</span>
-        <ArrowDown size={16} className="animate-bounce" />
+        <span className="text-sm" style={{ fontFamily: "'Inter', sans-serif" }}>Scroll</span>
+        <ArrowDown size={18} className="animate-bounce" />
       </button>
 
       <style>{`
